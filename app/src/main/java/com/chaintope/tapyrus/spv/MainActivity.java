@@ -16,6 +16,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        FFI.initialize();
+
         RustGreetings g = new RustGreetings();
         String r = g.sayHello("Android world");
         ((TextView)findViewById(R.id.greetingField)).setText(r);
