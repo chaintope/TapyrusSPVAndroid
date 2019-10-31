@@ -1,6 +1,9 @@
 package com.chaintope.tapyrus.spv;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,11 +18,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
 
-        FFI.initialize();
+    public void onClickRunButton(View view) {
+        String remote = ((TextView)findViewById(R.id.remote)).getText().toString();
+        int checkedId = ((RadioGroup)findViewById(R.id.network)).getCheckedRadioButtonId();
+        String network = ((RadioButton)findViewById(checkedId)).getText().toString();
 
-        RustGreetings g = new RustGreetings();
-        String r = g.sayHello("Android world");
-        ((TextView)findViewById(R.id.greetingField)).setText(r);
+        FFI ffi = new FFI(remote, network);
+        ffi.runSPV();
+
     }
 }

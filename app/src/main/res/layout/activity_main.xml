@@ -6,14 +6,74 @@
         android:layout_height="match_parent"
         tools:context="MainActivity">
 
-    <TextView
-            android:id="@+id/greetingField"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hello World!"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            tools:layout_editor_absoluteX="1dp"
+            tools:layout_editor_absoluteY="1dp">
+
+        <EditText
+                android:id="@+id/remote"
+                android:layout_width="fill_parent"
+                android:layout_height="48dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Connect to" />
+
+        <RadioGroup
+                android:id="@+id/network"
+                android:layout_width="fill_parent"
+                android:layout_height="116dp">
+
+            <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="network" />
+
+            <RadioButton
+                    android:id="@+id/bitcoin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="bitcoin" />
+
+            <RadioButton
+                    android:id="@+id/testnet"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="testnet" />
+
+            <RadioButton
+                    android:id="@+id/regtest"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="regtest" />
+        </RadioGroup>
+
+        <Button
+                android:id="@+id/run"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClickRunButton"
+                android:text="Run SPV node" />
+
+        <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="left" />
+
+        <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="20dp" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
